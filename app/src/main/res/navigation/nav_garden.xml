@@ -21,17 +21,40 @@
     app:startDestination="@id/view_pager_fragment">
 
     <fragment
+        android:id="@+id/repo_details_fragment"
+        android:name="com.google.samples.apps.sunflower.RepoDetailFragment">
+        <argument android:name="repoId" app:argType="string" />
+        <argument android:name="repoUser" app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/github_fragment"
+        android:name="com.google.samples.apps.sunflower.ReposFragment">
+        <action
+            android:id="@+id/action_repo_list_to_details"
+            app:destination="@id/repo_details_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <argument
+            android:name="userName"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
         android:id="@+id/view_pager_fragment"
         android:name="com.google.samples.apps.sunflower.HomeViewPagerFragment"
         tools:layout="@layout/fragment_view_pager">
 
         <action
-                android:id="@+id/action_view_pager_fragment_to_plant_detail_fragment"
-                app:destination="@id/plant_detail_fragment"
-                app:enterAnim="@anim/slide_in_right"
-                app:exitAnim="@anim/slide_out_left"
-                app:popEnterAnim="@anim/slide_in_left"
-                app:popExitAnim="@anim/slide_out_right" />
+            android:id="@+id/action_view_pager_fragment_to_plant_detail_fragment"
+            app:destination="@id/plant_detail_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment

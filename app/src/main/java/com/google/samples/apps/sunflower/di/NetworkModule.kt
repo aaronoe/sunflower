@@ -17,6 +17,7 @@
 package com.google.samples.apps.sunflower.di
 
 import com.google.samples.apps.sunflower.api.UnsplashService
+import com.google.samples.apps.sunflower.api.github.GitHubService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,5 +32,11 @@ class NetworkModule {
     @Provides
     fun provideUnsplashService(): UnsplashService {
         return UnsplashService.create()
+    }
+
+    @Singleton
+    @Provides
+    fun provideGitHubService(): GitHubService {
+        return GitHubService.create()
     }
 }
